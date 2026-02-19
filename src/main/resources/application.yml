@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: idp-sso-microservice
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+
+logging:
+  level:
+    root: INFO
+
+sso:
+  realms:
+    PCC:
+      authBaseUrl: "http://localhost:18081"
+      passwordBaseUrl: "http://localhost:18082"
+      profileBaseUrl: "http://localhost:18083"
+    BCC:
+      authBaseUrl: "http://localhost:28081"
+      passwordBaseUrl: "http://localhost:28082"
+      profileBaseUrl: "http://localhost:28083"
+    RCC:
+      authBaseUrl: "http://localhost:38081"
+      passwordBaseUrl: "http://localhost:38082"
+      profileBaseUrl: "http://localhost:38083"
+    IHH:
+      authBaseUrl: "http://localhost:48081"
+      passwordBaseUrl: "http://localhost:48082"
+      profileBaseUrl: "http://localhost:48083"
+
+http:
+  client:
+    connectTimeoutMillis: 3000
+    readTimeoutMillis: 8000
